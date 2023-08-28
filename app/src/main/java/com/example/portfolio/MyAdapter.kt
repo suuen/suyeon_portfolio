@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.portfolio.databinding.Type1Binding
 import com.example.portfolio.databinding.Type2Binding
+import com.example.portfolio의.MyPhoneData
 
 class MyAdapter(private val dataList: List<MyPhoneData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
