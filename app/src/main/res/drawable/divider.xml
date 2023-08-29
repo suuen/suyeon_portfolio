@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Divider 색상 설정 -->
+    <solid android:color="#BDBDBD" /> <!-- 회색 색상으로 설정 -->
+
+    <!-- Divider 높이 설정 -->
+    <size android:height="1dp" /> <!-- 높이를 1dp로 설정 -->
+
+</shape>

@@ -1,12 +1,26 @@
 package com.example.portfolio
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.portfolio.databinding.ActivityMainBinding
+
+
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
 
@@ -22,9 +36,42 @@ class MainActivity : AppCompatActivity() {
         dataList.add(MarketItems(R.drawable.sample9, "4행정 엔진분무기 판매합니다.", "3년전에 사서 한번 사용하고 그대로 둔 상태입니다. 요즘 사용은 안해봤습니다. 그래서 저렴하게 내 놓습니다. 중고라 반품은 어렵습니다.\\n", "알뜰한", 30000, "원주시 명륜2동", 7, 28))
         dataList.add(MarketItems(R.drawable.sample10, "셀린느 버킷 가방", "22년 신세계 대전 구매입니당\\n + \"셀린느 버킷백\\n\" + \"구매해서 몇번사용했어요\\n\" + \"까짐 스크래치 없습니다.\\n\" + \"타지역에서 보내는거라 택배로 진행합니당!\"", "똑태현", 190000, "중구 동화동", 40, 6))
 
+        binding.recyclerView.adapter = MyAdapter(dataList)
+
+        val adapter = MyAdapter(dataList)
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
+        adapter.itemClick = object : MyAdapter.ItemClick {
+            override fun onClick(view: View, position: Int) {
+                val title: String = dataList[position].aTitle
+                Toast.makeText(this@MainActivity," $title 선택!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // RecyclerView 설정
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        // Divider 설정
+        val dividerItemDecoration =
+            DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
 
 
     }
 
-}
+    override fun onBackPressed() {
+        // 뒤로가기 버튼 처리
+        val alertDialog = AlertDialog.Builder(this)
+            .setMessage("정말 나가시겠습니까?")
+            .setPositiveButton("예") { _, _ ->
+                finish()
+            }
+            .setNegativeButton("아니오", null)
+            .create()
 
+        alertDialog.show()
+    }
+
+}
