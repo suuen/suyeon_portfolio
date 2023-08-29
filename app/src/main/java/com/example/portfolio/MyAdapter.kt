@@ -3,96 +3,77 @@ package com.example.portfolio
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.portfolio.databinding.Type1Binding
 import com.example.portfolio.databinding.Type2Binding
-import com.example.portfolio의.MyPhoneData
 
-class MyAdapter(private val dataList: List<MyPhoneData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MyAdapter(private val dataList: List<MyPhoneData>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
-
-
-    companion object { // 즐겨찾기 여부 상수
+    companion object {
         private const val VIEW_TYPE_TYPE1 = 0
         private const val VIEW_TYPE_TYPE2 = 1
     }
 
-    interface ItemClick {  // 리사이클 뷰의 아이템이 클릭되었을때 호출할 메서드
-        fun onClick(view : View, position : Int)
+    interface ItemClick {
+        fun onClick(view: View, position: Int)
     }
 
-    var itemClick : ItemClick? = null // 아이템 클릭 이벤트를 처리할 콜백 변수
+    var itemClick: ItemClick? = null
 
-    // viewType에 따라 다른 뷰 홀더를 생성
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder { // 뷰 홀더를 생성하는 메소드
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
 
-        var view : View
-        return when (viewType) { // 뷰 타입에 따른 다른 뷰 생성
+        return when (viewType) {
             VIEW_TYPE_TYPE1 -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.type1, parent, false)
-                Type1ViewHolder(view)
+                val binding = Type1Binding.inflate(inflater, parent, false)
+                ViewHolder.Type1ViewHolder(binding)
             }
             VIEW_TYPE_TYPE2 -> {
-                val view =  LayoutInflater.from(parent.context).inflate(R.layout.type2, parent, false)
-                Type2ViewHolder(view)
+                val binding = Type2Binding.inflate(inflater, parent, false)
+                ViewHolder.Type2ViewHolder(binding)
             }
             else -> throw IllegalArgumentException("Invalid view type")
         }
     }
 
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) { // 뷰 홀더와 데이터를 바인딩하는 메소드
-
-        holder.itemView.setOnClickListener { // 클릭 이벤트 실행
-            itemClick?.onClick(it, position) //position 데이터 목록에서 현재 아이템의 위치
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.setOnClickListener {
+            itemClick?.onClick(it, position)
         }
 
         when (holder) {
-            is Type1ViewHolder -> holder.bindType1(dataList[position])
-            is Type2ViewHolder -> holder.bindType2(dataList[position])
+            is ViewHolder.Type1ViewHolder -> holder.bindType1(dataList[position])
+            is ViewHolder.Type2ViewHolder -> holder.bindType2(dataList[position])
         }
-
-
     }
 
-    // 데이터 아이템의 개수를 반환
     override fun getItemCount(): Int {
-        return dataList.size // 데이터 아이템의 총 개수를 반환하는 메소드
+        return dataList.size
     }
 
-    // position에 따라 viewType을 반환
-    override fun getItemViewType(position: Int): Int { // 아이템의 위치에 따라 보여줄 뷰 홀더의 유형을 결정
-
+    override fun getItemViewType(position: Int): Int {
         return if (dataList[position].aFavorites) {
-            VIEW_TYPE_TYPE1 // 즐겨찾기된 연락처
+            VIEW_TYPE_TYPE1
         } else {
-            VIEW_TYPE_TYPE2 // 즐겨찾기되지 않은 연락처
+            VIEW_TYPE_TYPE2
         }
     }
 
-    // 뷰 홀더 클래스 정의
-    inner class  Type1ViewHolder(view:View) : RecyclerView.ViewHolder(view) {
-
-        val image = view.findViewById<ImageView>(R.id.iconItem)
-        val name = view.findViewById<TextView>(R.id.textItem1)
-        val number = view.findViewById<TextView>(R.id.textItem)
-        fun bindType1(data: MyPhoneData) {
-            image.setImageResource(data.aIcon)
-            name.text = data.aName
-            number.text = data.aNumber
+    sealed class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        class Type1ViewHolder(val binding: Type1Binding) : ViewHolder(binding.root) {
+            fun bindType1(data: MyPhoneData) {
+                binding.iconItem.setImageResource(data.aIcon)
+                binding.textItem1.text = data.aName
+                binding.textItem.text = data.aNumber
+            }
         }
-    }
 
-    inner class Type2ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val image = view.findViewById<ImageView>(R.id.iconItem)
-        val name = view.findViewById<TextView>(R.id.textItem1)
-        val number = view.findViewById<TextView>(R.id.textItem)
-        fun bindType2(data: MyPhoneData) {
-            image.setImageResource(data.aIcon)
-            name.text = data.aName
-            number.text = data.aNumber
+        class Type2ViewHolder(val binding: Type2Binding) : ViewHolder(binding.root) {
+            fun bindType2(data: MyPhoneData) {
+                binding.iconItem.setImageResource(data.aIcon)
+                binding.textItem1.text = data.aName
+                binding.textItem.text = data.aNumber
+            }
         }
     }
 }
