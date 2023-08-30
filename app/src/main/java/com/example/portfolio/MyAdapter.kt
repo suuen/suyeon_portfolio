@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.portfolio.databinding.MainpageBinding
+import java.text.DecimalFormat
 
 class MyAdapter(val mItems: MutableList<MarketItems>) : RecyclerView.Adapter<MyAdapter.Holder>() {
 
@@ -25,7 +26,10 @@ class MyAdapter(val mItems: MutableList<MarketItems>) : RecyclerView.Adapter<MyA
         }
         holder.iconImageView.setImageResource(mItems[position].aIcon)
         holder.title.text = mItems[position].aTitle
-        holder.price.text = mItems[position].aPrice.toString()
+
+        val formatprice = DecimalFormat("#,###,###").format(mItems[position].aPrice)
+        holder.price.text = "${formatprice} 원"
+
         holder.address.text = mItems[position].aAddress
         holder.like.text = mItems[position].aLike.toString()
         holder.talk.text = mItems[position].aMessage.toString()

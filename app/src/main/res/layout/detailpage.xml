@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#FF9800">
+
+
+    <View
+        android:id="@+id/line_top"
+        android:layout_width="1050px"
+        android:layout_height="4px"
+        android:background="#D1D0D0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="380dp" />
+
+    <View
+        android:id="@+id/line_down"
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="#D1D0D0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView7" />
+
+    <TextView
+        android:id="@+id/keyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="난쉽"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/icon_b" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="63dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_b"
+        app:srcCompat="@drawable/profile" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="29dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_b"
+        app:srcCompat="@drawable/smile" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:text="39.5 ℃"
+        android:textColor="#528C73"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/icon_b" />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="-9dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#838181"
+        android:ems="10"
+        android:inputType="text"
+        android:text="매너온도"
+        android:textColor="#838181"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/atitle_b"
+        android:layout_width="394dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:text="샤넬 탑핸들 가방"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_top" />
+
+    <TextView
+        android:id="@+id/detail"
+        android:layout_width="367dp"
+        android:layout_height="199dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:text="샤넬 트랜디 CC 탑핸들 스몰 램스킨 블랙 금장 플랩백 !\n  \n 색상 : 블랙\n 사이즈 : 25.5cm * 17.5cm * 8cm\n\구성 : 본품더스트\n  \n 급하게 돈이 필요해서 팝니다 ㅠ ㅠ"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/atitle_b" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="25dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/heart" />
+
+    <TextView
+        android:id="@+id/price_b"
+        android:layout_width="181dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="12dp"
+        android:text="180,000 원"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/line_down" />
+
+    <Button
+        android:id="@+id/chat"
+        android:layout_width="117dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="채팅하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/price_b" />
+
+    <ImageView
+        android:id="@+id/icon_b"
+        android:layout_width="412dp"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sample1"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/address_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="서울 서대문구 창천동"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/keyword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

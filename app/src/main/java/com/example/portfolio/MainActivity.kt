@@ -1,11 +1,17 @@
 package com.example.portfolio
 
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +22,8 @@ import com.example.portfolio.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val channelId = "bell" // notification 채널 id / 알림 Id
+    private val notificationId = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -44,10 +52,26 @@ class MainActivity : AppCompatActivity() {
 
         adapter.itemClick = object : MyAdapter.ItemClick {
             override fun onClick(view: View, position: Int) {
-                val title: String = dataList[position].aTitle
-                Toast.makeText(this@MainActivity," $title 선택!", Toast.LENGTH_SHORT).show()
+               /* val intent = Intent(this@MainActivity, secondpage::class.java)
+                val data = MarketItems(
+                    aIcon = R.drawable.sample1,
+                    aTitle = "산지 한달된 선풍기 팝니다",
+                    aDetail = "이사가서 필요가 없어졌어요 급하게 내놓습니다",
+                    aKeyword = "대현동",
+                    aPrice = 1000,
+                    aAddress = "서울 서대문구 창천동",
+                    aLike = 13,
+                    aMessage = 25
+                )
+                intent.putExtra("data", data)
+                startActivityForResult(intent, 100)*/
             }
         }
+
+        binding.bell.setOnClickListener {
+            showNotification()
+        }
+
 
         // RecyclerView 설정
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
@@ -60,6 +84,40 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    private fun showNotification() {
+        // Notification 채널 생성 (Android 8.0 이상에서 필요)
+        createNotificationChannel()
+
+        // Notification 빌더 생성
+        val builder = NotificationCompat.Builder(this, "bell")
+            .setSmallIcon(R.drawable.bell)
+            .setContentTitle("Apple Market")
+            .setContentText("등록해둔 키워드 알림입니다.")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        // Notification을 표시
+        with(NotificationManagerCompat.from(this)) {
+            notify(notificationId, builder.build())
+        }
+    }
+
+    // Notification 채널 생성
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "애플마켓 알림"
+            val descriptionText = "벨을 누르면 알림이 울립니다."
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(channelId, name, importance).apply {
+                description = descriptionText
+            }
+
+            // Notification 채널을 시스템에 등록
+            val notificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
 
     override fun onBackPressed() {
         // 뒤로가기 버튼 처리
