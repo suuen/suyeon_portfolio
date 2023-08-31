@@ -8,15 +8,6 @@
 
 
     <View
-        android:id="@+id/line_top"
-        android:layout_width="1050px"
-        android:layout_height="4px"
-        android:background="#D1D0D0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="380dp" />
-
-    <View
         android:id="@+id/line_down"
         android:layout_width="1dp"
         android:layout_height="30dp"
@@ -25,6 +16,16 @@
         android:background="#D1D0D0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView7" />
+
+    <View
+        android:id="@+id/line_down2"
+        android:layout_width="400dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:background="#D1D0D0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_b" />
 
     <TextView
         android:id="@+id/keyword"
@@ -84,29 +85,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-    <TextView
-        android:id="@+id/atitle_b"
-        android:layout_width="394dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="16dp"
-        android:text="샤넬 탑핸들 가방"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_top" />
-
-    <TextView
-        android:id="@+id/detail"
-        android:layout_width="367dp"
-        android:layout_height="199dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:text="샤넬 트랜디 CC 탑핸들 스몰 램스킨 블랙 금장 플랩백 !\n  \n 색상 : 블랙\n 사이즈 : 25.5cm * 17.5cm * 8cm\n\구성 : 본품더스트\n  \n 급하게 돈이 필요해서 팝니다 ㅠ ㅠ"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atitle_b" />
-
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="25dp"
@@ -159,5 +137,31 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/keyword" />
+
+    <TextView
+        android:id="@+id/titleb"
+        android:layout_width="379dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="title"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_b" />
+
+    <TextView
+        android:id="@+id/detail"
+        android:layout_width="374dp"
+        android:layout_height="204dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:text="detail"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleb" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
