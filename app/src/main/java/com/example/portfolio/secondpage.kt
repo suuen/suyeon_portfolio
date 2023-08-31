@@ -3,6 +3,7 @@ package com.example.portfolio
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.portfolio.databinding.DetailpageBinding
+import java.text.DecimalFormat
 
 class secondpage : AppCompatActivity() {
 
@@ -20,7 +21,10 @@ class secondpage : AppCompatActivity() {
             binding.detail.text = receivedData.aDetail
             binding.addressB.text = receivedData.aAddress
             binding.keyword.text = receivedData.aKeyword
-            binding.priceB.text = receivedData.aPrice.toString()
+
+            val formatprice = DecimalFormat("#,###,### 원")
+            val price = formatprice.format(receivedData.aPrice)
+            binding.priceB.text = price
             binding.iconB.setImageResource(receivedData.aIcon)
 
 
