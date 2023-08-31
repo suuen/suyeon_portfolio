@@ -7,161 +7,179 @@
     android:backgroundTint="#FF9800">
 
 
-    <View
-        android:id="@+id/line_down"
-        android:layout_width="1dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="10dp"
-        android:background="#D1D0D0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView7" />
-
-    <View
-        android:id="@+id/line_down2"
-        android:layout_width="400dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="15dp"
-        android:background="#D1D0D0"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="412dp"
+        android:layout_height="667dp"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_b" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/keyword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="난쉽"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/icon_b" />
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="409dp"
+            android:layout_height="732dp"
+            tools:layout_editor_absoluteX="1dp" >
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="63dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_b"
-        app:srcCompat="@drawable/profile" />
+        </ScrollView>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="29dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_b"
-        app:srcCompat="@drawable/smile" />
+        <View
+            android:id="@+id/line_down2"
+            android:layout_width="380dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="20dp"
+            android:background="#D1D0D0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_b" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="8dp"
-        android:text="39.5 ℃"
-        android:textColor="#528C73"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/icon_b" />
+        <TextView
+            android:id="@+id/titleb"
+            android:layout_width="383dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:text="title"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/line_down2" />
 
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="45dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="-9dp"
-        android:layout_marginEnd="28dp"
-        android:backgroundTint="#838181"
-        android:ems="10"
-        android:inputType="text"
-        android:text="매너온도"
-        android:textColor="#838181"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        <TextView
+            android:id="@+id/detail"
+            android:layout_width="378dp"
+            android:layout_height="207dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:text="detail"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleb" />
+
+        <TextView
+            android:id="@+id/keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:text="난쉽"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/icon_b" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="63dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icon_b"
+            app:srcCompat="@drawable/profile" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="29dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icon_b"
+            app:srcCompat="@drawable/smile" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            android:text="39.5 ℃"
+            android:textColor="#528C73"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/icon_b" />
+
+        <EditText
+            android:id="@+id/editTextText3"
+            android:layout_width="45dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#838181"
+            android:ems="10"
+            android:inputType="text"
+            android:text="매너온도"
+            android:textColor="#838181"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icon_b" />
+
+        <ImageView
+            android:id="@+id/icon_b"
+            android:layout_width="412dp"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sample1" />
+
+        <TextView
+            android:id="@+id/address_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="서울 서대문구 창천동"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/keyword" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="25dp"
         android:layout_height="26dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/heart" />
 
-    <TextView
-        android:id="@+id/price_b"
-        android:layout_width="181dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="12dp"
-        android:text="180,000 원"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/line_down" />
-
     <Button
         android:id="@+id/chat"
         android:layout_width="117dp"
         android:layout_height="44dp"
-        android:layout_marginStart="20dp"
         android:layout_marginBottom="10dp"
         android:text="채팅하기"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/price_b" />
 
-    <ImageView
-        android:id="@+id/icon_b"
-        android:layout_width="412dp"
-        android:layout_height="300dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sample1"
-        android:scaleType="centerCrop"/>
-
     <TextView
-        android:id="@+id/address_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:text="서울 서대문구 창천동"
+        android:id="@+id/price_b"
+        android:layout_width="181dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="17dp"
+        android:text="180,000 원"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/keyword" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView7" />
 
-    <TextView
-        android:id="@+id/titleb"
-        android:layout_width="379dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:text="title"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_b" />
-
-    <TextView
-        android:id="@+id/detail"
-        android:layout_width="374dp"
-        android:layout_height="204dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="detail"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleb" />
+    <View
+        android:id="@+id/line_down"
+        android:layout_width="2dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="#D1D0D0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/price_b"
+        app:layout_constraintStart_toEndOf="@+id/imageView7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
