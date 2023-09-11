@@ -1,10 +1,9 @@
 package com.example.myapplication
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.databinding.ActivityMainBinding
 import android.content.res.Configuration
-
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,14 +15,12 @@ class MainActivity : AppCompatActivity() {
 
         val direction = resources.configuration.orientation
 
-        if(direction == Configuration.ORIENTATION_LANDSCAPE) {
+        if (direction == Configuration.ORIENTATION_LANDSCAPE) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.title, TitleFragment()).commit()
-            supportFragmentManager.beginTransaction()
-                .add(R.id.detail_context, DetailFragment()).commit()
-        }
-
-        else {
+                .replace(R.id.title, TitleFragment())
+                .replace(R.id.detail, DetailFragment())
+                .commit()
+        } else {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frameLayout, TitleFragment())
                 .commit()

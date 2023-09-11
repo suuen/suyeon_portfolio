@@ -47,18 +47,15 @@ class TitleFragment : Fragment() {
         return view
     }
 
-    private fun NewsData(): List<NewsItem> {
-        // 데이터 원본
-        return listOf(
-            NewsItem(
-                R.drawable.ai,"기사 제목","기사 내용", "2023.09.10","김기자", "중앙일보"),
-            NewsItem(
-                R.drawable.ai,"기사 제목","냠냠 내용", "2023.09.10","김기자", "중앙일보"),
-            NewsItem(
-                R.drawable.ai,"기사 제목","기사 내용", "2023.09.10","김기자", "중앙일보"),
-            NewsItem(
-                R.drawable.ai,"기사 제목","기사 내용", "2023.09.10","김기자", "중앙일보"),)
 
+    private fun NewsData(): List<NewsItem> {
+        return listOf(
+            NewsItem(R.drawable.ai, "기사 제목 1", "기사 내용 1", "2023.09.10", "김기자", "중앙일보"),
+            NewsItem(R.drawable.ai, "기사 제목 2", "냠냠 내용 2", "2023.09.11", "박기자", "한국일보"),
+            NewsItem(R.drawable.ai, "기사 제목 3", "기사 내용 3", "2023.09.12", "이기자", "조선일보"),
+            NewsItem(R.drawable.ai, "기사 제목 4", "기사 내용 4", "2023.09.13", "정기자", "동아일보")
+        )
     }
+
 
 }
