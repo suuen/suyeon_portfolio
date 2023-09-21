@@ -12,7 +12,6 @@ import com.example.kakaobank_a.databinding.FragmentSecondBinding
 
 
 class Fragment_second : Fragment() {
-
     private lateinit var SearchContext: Context
     private lateinit var binding: FragmentSecondBinding
     private lateinit var adapter: SecondAdapter
@@ -30,16 +29,20 @@ class Fragment_second : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false)
+        val mainActivity = activity as MainActivity
+        likedItems = mainActivity.likedItems
 
-        val recyclerView = binding.recycleBook // 연결
+        adapter = SecondAdapter(SearchContext).apply {
+            items = likedItems.toMutableList()
+        }
+
         val spanCount = 2
-        val layoutManager = GridLayoutManager(SearchContext, spanCount)
-        recyclerView.layoutManager = layoutManager
-        adapter = SecondAdapter(SearchContext)
-        recyclerView.adapter = adapter
+        val grid = GridLayoutManager(SearchContext, spanCount)
+
+        binding = FragmentSecondBinding.inflate(inflater, container, false)
+        binding.recycleBook.layoutManager = grid
+        binding.recycleBook.adapter = adapter
 
         return binding.root
     }
-
 }

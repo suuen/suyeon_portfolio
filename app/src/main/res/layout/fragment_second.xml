@@ -7,12 +7,31 @@
     tools:context=".Fragment_second">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_book"
-        android:layout_width="410dp"
-        android:layout_height="730dp"
+    <ScrollView
+        android:layout_width="408dp"
+        android:layout_height="667dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleBook"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="411dp"
+        android:layout_height="64dp"
+        android:background="#C0FA7E"
+        android:gravity="center|center_vertical"
+        android:text="사진 보관함"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

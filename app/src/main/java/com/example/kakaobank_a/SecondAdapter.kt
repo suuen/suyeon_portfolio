@@ -30,7 +30,7 @@ class SecondAdapter(var mContext: Context) : RecyclerView.Adapter<RecyclerView.V
                 .into((holder as ItemViewHolder).image)
 
             holder.title.text = items[position].name
-            holder.like.visibility = View.GONE // '좋아요' 아이콘을 숨김
+            holder.like.visibility = View.GONE
             holder.date.text = items[position].date
         }
 

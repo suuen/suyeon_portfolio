@@ -47,8 +47,8 @@ class Fragment_first : Fragment() {
         // GridLayoutManager 설정
 
         val spanCount = 2
-        val myLayoutManager = GridLayoutManager(SearchContext, spanCount)
-        binding.recycleview.layoutManager = myLayoutManager
+        val grid = GridLayoutManager(SearchContext, spanCount)
+        binding.recycleview.layoutManager = grid
 
         adapter = FirstAdapter(SearchContext)
         binding.recycleview.adapter = adapter  // RecyclerView에 어댑터 연결
