@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.kakaobank_a.Utils.getDateFromTimestampWithFormat
 import com.example.kakaobank_a.databinding.ItemBinding
 import okhttp3.internal.notifyAll
+import java.text.SimpleDateFormat
 
 class SecondAdapter(var mContext: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -29,9 +30,16 @@ class SecondAdapter(var mContext: Context) : RecyclerView.Adapter<RecyclerView.V
                 .load(items[position].url)
                 .into((holder as ItemViewHolder).image)
 
+            val inputDate = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+            val outputDate = SimpleDateFormat("yyyy-MM-dd HH:mm")
+
+            val dataparse = inputDate.parse(items[position].date)
+            val dataSimple = outputDate.format(dataparse)
+
+
             holder.title.text = items[position].name
             holder.like.visibility = View.GONE
-            holder.date.text = items[position].date
+            holder.date.text = dataSimple
         }
 
         override fun getItemCount(): Int {

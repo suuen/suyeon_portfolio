@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.kakaobank_a.databinding.ItemBinding
+import java.text.SimpleDateFormat
 
 class FirstAdapter(private val mContext: Context) : RecyclerView.Adapter<FirstAdapter.ItemViewHolder>() {
 
@@ -28,12 +29,20 @@ class FirstAdapter(private val mContext: Context) : RecyclerView.Adapter<FirstAd
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val currentItem = items[position]
 
+        val inputDate = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+        val outputDate = SimpleDateFormat("yyyy-MM-dd HH:mm")
+
+        val dataparse = inputDate.parse(currentItem.date)
+        val dataSimple = outputDate.format(dataparse)
+
         Glide.with(mContext)
             .load(currentItem.url)
             .into(holder.image)
 
+
         holder.title.text = currentItem.name
-        holder.date.text = currentItem.date
+        holder.date.text = dataSimple
+
 
 
         holder.image.setOnClickListener {
