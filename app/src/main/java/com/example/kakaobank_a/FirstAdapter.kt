@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.kakaobank_a.databinding.ItemBinding
 
-class FirstAdapter(private val mContext: Context): RecyclerView.Adapter<FirstAdapter.ItemViewHolder>() {
+class FirstAdapter(private val mContext: Context) : RecyclerView.Adapter<FirstAdapter.ItemViewHolder>() {
 
     var items = ArrayList<data>()
 
@@ -34,37 +34,34 @@ class FirstAdapter(private val mContext: Context): RecyclerView.Adapter<FirstAda
 
         holder.title.text = currentItem.name
         holder.date.text = currentItem.date
+
+        if (currentItem.like) {
+            holder.like.visibility = View.VISIBLE
+        } else {
+            holder.like.visibility = View.GONE
+        }
+
+        holder.image.setOnClickListener {
+            val item = items[position]
+            item.like = !item.like // 클릭할 때마다 상태를 토글합니다.
+
+            if (item.like) {
+                holder.like.visibility = View.VISIBLE
+                (mContext as MainActivity).addlike(item)
+            } else {
+                holder.like.visibility = View.GONE
+                (mContext as MainActivity).deletelike(item)
+            }
+        }
     }
 
     override fun getItemCount() = items.size
 
-    inner class ItemViewHolder(binding:ItemBinding ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
-
+    inner class ItemViewHolder(binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
         var image: ImageView = binding.image
         var like: ImageView = binding.heart
         var title: TextView = binding.title
         var date: TextView = binding.date
         var item: ConstraintLayout = binding.items
-
-        init {
-
-
-            like.visibility = View.GONE
-
-
-            item.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    items.removeAt(position)
-                    notifyItemRemoved(position)
-                }
-            }
-        }
-
-        override fun onClick(p0: View?) {
-            TODO("Not yet implemented")
-        }
-
     }
-
 }

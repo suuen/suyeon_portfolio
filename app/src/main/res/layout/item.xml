@@ -48,12 +48,10 @@
 
     <ImageView
         android:id="@+id/heart"
-        android:layout_width="68dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:visibility="gone"
-        app:layout_constraintLeft_toRightOf="@id/image"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="45dp"
+        android:layout_height="32dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/image"
+        app:layout_constraintTop_toTopOf="@+id/image"
         app:srcCompat="@drawable/heart" />
 </androidx.constraintlayout.widget.ConstraintLayout>

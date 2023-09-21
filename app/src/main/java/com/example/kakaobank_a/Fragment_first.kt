@@ -46,7 +46,8 @@ class Fragment_first : Fragment() {
     private fun setupView() {
         // GridLayoutManager 설정
 
-        val myLayoutManager = GridLayoutManager(SearchContext, 2)
+        val spanCount = 2
+        val myLayoutManager = GridLayoutManager(SearchContext, spanCount)
         binding.recycleview.layoutManager = myLayoutManager
 
         adapter = FirstAdapter(SearchContext)
@@ -60,7 +61,6 @@ class Fragment_first : Fragment() {
         val searchText = binding.searchText
 
         searchButton.setOnClickListener {
-            Log.d("click 확인","click")
             val query = searchText.text.toString()
             if (query.isNotEmpty()) {
                 adapter.clearItem()
@@ -96,8 +96,11 @@ class Fragment_first : Fragment() {
                 }
 
                 override fun onFailure(call: Call<ImageModel>, t: Throwable) {
-                    Log.e("log_check", " ${t.message}")
+                    TODO("Not yet implemented")
                 }
-            })
+
+
+            }
+            )
     }
 }

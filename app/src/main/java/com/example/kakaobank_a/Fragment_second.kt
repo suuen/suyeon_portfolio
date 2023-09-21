@@ -31,17 +31,13 @@ class Fragment_second : Fragment() {
     ): View? {
 
         binding = FragmentSecondBinding.inflate(inflater, container, false)
-        adapter = SecondAdapter(SearchContext).apply {
-            items = likedItems.toMutableList()
-            return binding.root
-        }
 
-
-        binding = FragmentSecondBinding.inflate(inflater, container, false).apply {
-            val spanCount = 2
-            val layoutManager = GridLayoutManager(SearchContext, spanCount)
-            binding.recycleBook.layoutManager = layoutManager
-        }
+        val recyclerView = binding.recycleBook // 연결
+        val spanCount = 2
+        val layoutManager = GridLayoutManager(SearchContext, spanCount)
+        recyclerView.layoutManager = layoutManager
+        adapter = SecondAdapter(SearchContext)
+        recyclerView.adapter = adapter
 
         return binding.root
     }
