@@ -35,11 +35,6 @@ class FirstAdapter(private val mContext: Context) : RecyclerView.Adapter<FirstAd
         holder.title.text = currentItem.name
         holder.date.text = currentItem.date
 
-        if (currentItem.like) {
-            holder.like.visibility = View.VISIBLE
-        } else {
-            holder.like.visibility = View.GONE
-        }
 
         holder.image.setOnClickListener {
             val item = items[position]
