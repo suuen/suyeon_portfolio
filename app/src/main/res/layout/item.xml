@@ -2,25 +2,27 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/items">
+    android:id="@+id/items"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="155dp"
         android:layout_height="155dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:maxWidth="160dp"
+        android:maxHeight="160dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mark" />
 
     <LinearLayout
-        android:layout_width="353dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="157dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:maxWidth="230dp"
         android:maxHeight="30dp"

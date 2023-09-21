@@ -10,8 +10,10 @@
         android:id="@+id/search_text"
         android:layout_width="324dp"
         android:layout_height="55dp"
-        android:hint="검색어를 입력하세요."
+        android:layout_marginStart="24dp"
 
+        android:layout_marginTop="16dp"
+        android:hint="검색어를 입력하세요."
         android:paddingLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,10 +36,10 @@
         android:id="@+id/search_btn"
         android:layout_width="59dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/baseline_search_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.812"
         app:layout_constraintStart_toEndOf="@+id/search_text"
         app:layout_constraintTop_toTopOf="parent" />
 
